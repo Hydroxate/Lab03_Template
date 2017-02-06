@@ -19,15 +19,6 @@
 
     <!-- Edit Text is a text field that will bring the keyboard up when tapped !-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Bang to Pure Data"
-        android:id="@+id/button1"
-        android:layout_alignBottom="@+id/slider1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="53dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,22 +34,24 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
-    <SeekBar
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:id="@+id/slider1"
-        android:layout_below="@+id/switch1"
-        android:layout_alignParentStart="true"
-        android:max="100" />
+        android:text="Freq to send"
+        android:id="@+id/freqText"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignParentStart="true" />
 
-    <SeekBar
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/slider2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="54dp"
-        android:max="100" />
+        android:text="Send Freq to Pure Data"
+        android:id="@+id/button1"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="17dp"
+        android:layout_below="@+id/switch1"
+        android:layout_toEndOf="@+id/freqText" />
+
 
 </RelativeLayout>

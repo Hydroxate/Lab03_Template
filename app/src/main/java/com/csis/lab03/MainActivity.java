@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
@@ -25,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     private PdUiDispatcher dispatcher; //must declare this to use later, used to receive data from sendEvents
     private SeekBar slider1; //Declaring slider1 here
-    private SeekBar slider2; //Declaring slider2 here
 
     float slide1Value = 0.0f;
-    float slide2Value = 0.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button button1 = (Button) findViewById(R.id.button1); //findViewById uses the ids you specified in the xml!
 
+
         Switch switch1 = (Switch) findViewById(R.id.switch1);//declared the switch here pointing to id onOffSwitch
+
+        final EditText freqText   = (EditText) findViewById(R.id.freqText);
 
 
 
@@ -61,69 +63,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //<------BUTTON CLICK LISTENER--------------->
+        //<------BUTTON1 CLICK LISTENER--------------->
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                sendBangPD("button1");
+                sendFloatPD("freq",Float.parseFloat(freqText.getText().toString()));
 
             }
         });
 
+
         //<--------SLIDER 1 LISTENER------------>
         slider1 = (SeekBar) findViewById(R.id.slider1);
 
-        slider1.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener()
-                {
-
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        slide1Value = progress / 100.0f;
-
-                        sendFloatPD("slider1", slide1Value);
-
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                });
-
-        //<--------SLIDER 1 LISTENER------------>
-        slider2 = (SeekBar) findViewById(R.id.slider2);
-
-        slider2.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener()
-                {
-
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        slide2Value = progress / 100.0f;
-                        sendFloatPD("slider2", slide2Value);
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                });
-
-        //<------PLACE 2ND BUTTON CLICK LISTENER UNDER HERE--------------->
 
     }
 
