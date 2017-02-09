@@ -25,9 +25,6 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     private PdUiDispatcher dispatcher; //must declare this to use later, used to receive data from sendEvents
-    private SeekBar slider1; //Declaring slider1 here
-
-    float slide1Value = 0.0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         //For declaring and initialising XML items, Always of form OBJECT_TYPE VARIABLE_NAME = (OBJECT_TYPE) findViewById(R.id.ID_SPECIFIED_IN_XML);
 
         Button button1 = (Button) findViewById(R.id.button1); //findViewById uses the ids you specified in the xml!
-
 
         Switch switch1 = (Switch) findViewById(R.id.switch1);//declared the switch here pointing to id onOffSwitch
 
@@ -73,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        //<--------SLIDER 1 LISTENER------------>
-      //  slider1 = (SeekBar) findViewById(R.id.slider1);
 
 
     }
