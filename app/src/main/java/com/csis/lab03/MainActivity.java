@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //<--------SLIDER 1 LISTENER------------>
-        slider1 = (SeekBar) findViewById(R.id.slider1);
+      //  slider1 = (SeekBar) findViewById(R.id.slider1);
 
 
     }
